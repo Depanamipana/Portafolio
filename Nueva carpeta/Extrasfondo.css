@@ -4,14 +4,12 @@
   src: url("Fuentes/ModernNeon-Regular.otf") format("opentype");
 }
 
-
-
 /* 2. Estilos globales */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background: black;
   font-family: 'Courier New', monospace;
 }
@@ -24,25 +22,26 @@ body, html {
   z-index: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none; /* para que no bloquee clics */
 }
 
 /* 4. Contenido visible por encima del fondo */
-.contenido {
+.contenido, nav.navbar, .Tarjetas {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   color: white;
   text-align: center;
-  padding-top: 100px;
   font-family: "ModernNeon-Regular", monospace;
 }
 
-.titulo{
+.contenido {
+  padding-top: 100px;
+}
 
+.titulo {
   font-size: 79px;
   animation: parpadear 0.7s infinite backwards steps(2);
-  text-shadow:0 0 5px red, 0 0 25px red, 0 0 60px red, 0 0 150px red;
-
-
+  text-shadow: 0 0 5px red, 0 0 25px red, 0 0 60px red, 0 0 150px red;
 }
 
 @keyframes parpadear {
@@ -51,28 +50,12 @@ body, html {
   }
 }
 
-.elresto{
-
+.elresto {
   font-size: 26px;
-  text-shadow:0 0 5px red, 0 0 15px red, 0 0 40px red, 0 0 90px red;
-  
-
-
+  text-shadow: 0 0 5px red, 0 0 15px red, 0 0 40px red, 0 0 90px red;
 }
 
-
-/* Tarjetas */
-.Tarjetas {
-  display: flex;
-  justify-content: space-between;
-  margin: 156px 190px 0 190px;
-}
-
-/* Estilo para una tarjeta específica */
-.card1 {
-  color: brown;
-}
-
+/* Animación por letra */
 #texto-animado span {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -83,13 +66,24 @@ body, html {
   opacity: 1;
 }
 
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+/* Tarjetas */
+.Tarjetas {
+  display: flex;
+  justify-content: space-between;
+  margin: 156px 190px 0 190px;
+  margin-top: 100px;
+  padding: 20px;
+  z-index: 10;
 }
 
-.card:hover {
+.itch-frame {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  z-index: 11;
+  position: relative;
+}
+
+.itch-frame:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
-
