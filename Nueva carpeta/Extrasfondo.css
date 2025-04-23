@@ -1,0 +1,95 @@
+/* 1. Registrar la fuente personalizada */
+@font-face {
+  font-family: "ModernNeon-Regular";
+  src: url("Fuentes/ModernNeon-Regular.otf") format("opentype");
+}
+
+
+
+/* 2. Estilos globales */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: 'Courier New', monospace;
+}
+
+/* 3. Lienzo para el efecto de fondo Matrix */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 4. Contenido visible por encima del fondo */
+.contenido {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 100px;
+  font-family: "ModernNeon-Regular", monospace;
+}
+
+.titulo{
+
+  font-size: 79px;
+  animation: parpadear 0.7s infinite backwards steps(2);
+  text-shadow:0 0 5px red, 0 0 25px red, 0 0 60px red, 0 0 150px red;
+
+
+}
+
+@keyframes parpadear {
+  to {
+    text-shadow: none;
+  }
+}
+
+.elresto{
+
+  font-size: 26px;
+  text-shadow:0 0 5px red, 0 0 15px red, 0 0 40px red, 0 0 90px red;
+  
+
+
+}
+
+
+/* Tarjetas */
+.Tarjetas {
+  display: flex;
+  justify-content: space-between;
+  margin: 156px 190px 0 190px;
+}
+
+/* Estilo para una tarjeta específica */
+.card1 {
+  color: brown;
+}
+
+#texto-animado span {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  text-shadow: 0 0 5px red, 0 0 15px red, 0 0 40px red;
+}
+
+#texto-animado span.encendido {
+  opacity: 1;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
